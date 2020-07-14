@@ -50,14 +50,52 @@ can loot without dying in the lava.</p>
             </p>
         </div>
         <div class="col-sm-4 text-left">
-            <span class="bolded">Cave List: </span><br />
+            @* <span class="bolded">Cave List: </span><br />
                 <span class="indent">@string.Join(", ", Model.caveData.CaveList) </span><br />
+            <span class="bolded">Number of Caves: </span><br />
+                <span class="indent">@Model.caveData.CaveList.Count </span><br />
+            <span class="bolded">Number of Caves Looted: </span><br />
+                <span class="indent">@Model.caveData.MaxCavesByIndex.Count </span><br />
             <span class="bolded">Cave # Looted: (1 based indexing)</span><br />
                 <span class="indent">@string.Join(", ", Model.caveData.MaxCavesByIndex) </span><br />
             <span class="bolded">Gold Looted: </span><br />
                 <span class="indent">@string.Join(", ", Model.caveData.MaxCavesByInteger) </span><br />
             <span class="bolded">Total Gold Looted: </span><br />
-                <span class="indent">@Model.caveData.MaxCaveLoot </span><br />
+                <span class="indent">@Model.caveData.MaxCaveLoot </span><br /> *@
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="bolded">Cave List:</td>
+                        <td></td>
+                        <td>@string.Join(", ", Model.caveData.CaveList)</td>
+                    </tr>
+                    <tr>
+                        <td class="bolded">Number of Caves:</td>
+                        <td></td>
+                        <td>@string.Join(", ", @Model.caveData.CaveList.Count)</td>
+                    </tr>
+                    <tr>
+                        <td class="bolded">Number of Caves Looted:</td>
+                        <td></td>
+                        <td>@string.Join(", ", @Model.caveData.MaxCavesByIndex.Count)</td>
+                    </tr>
+                    <tr>
+                        <td class="bolded">Caves Looted: <br /> <span class="indentSpan">(1 based index)</span></td>
+                        <td></td>
+                        <td>@string.Join(", ", Model.caveData.MaxCavesByIndex)</td>
+                    </tr>
+                    <tr>
+                        <td class="bolded">Gold Looted from Cave:</td>
+                        <td></td>
+                        <td>@string.Join(", ", Model.caveData.MaxCavesByInteger)</td>
+                    </tr>
+                    <tr>
+                        <td class="bolded">Total Gold Looted:</td>
+                        <td></td>
+                        <td>@Model.caveData.MaxCaveLoot</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
