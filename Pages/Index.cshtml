@@ -114,15 +114,25 @@ can loot without dying in the lava.</p>
                     </div>
                 </div>
     </form>
-
+<br />
     <div class="container">
         <table class="tableCSS">
             <tbody>
                 <tr>
                     <td>Cave # - </td>
-                    @for (var i = 1; i <= Model.caveData.CaveList.Count; i++)
+                    @for (var i = 0; i < Model.caveData.CaveList.Count; i++)
                     {
-                        <td>@i</td>
+                        if(Model.caveData.MaxCavesByIndex.Contains(i + 1))
+                        {
+                            var counter = i + 1;
+                            <td style="background-color: #6ded68;">@counter</td>
+                        }
+                        else
+                        {
+                            var counter = i + 1;
+                            <td style="background-color: #f7615e">@counter</td>
+                        }
+
                     }
                 </tr>
                 <tr>
