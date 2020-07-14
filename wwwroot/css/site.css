@@ -12,6 +12,23 @@ a {
   color: #0366d6;
 }
 
+.textLeft {
+  text-align: left;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.indent {
+  text-indent: 50px;
+}
+
+.indentSpan {
+  display: block;
+  text-indent: 50px;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

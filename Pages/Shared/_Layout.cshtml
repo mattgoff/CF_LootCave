@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CF_LootCave</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
+    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">CF_LootCave</a>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> *@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -36,8 +36,11 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - CF_LootCave - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <div class="container text-center">
+            &copy; 2020 - Matt Goff -
+                <a class="textOrange" href="https://github.com/mattgoff/CF_LootCave" target="_"> GitHub Repo Link </a>
+
+                <a class="textOrange" href="https://www.mattgoff.dev" target="_"> - My Portfolio - </a>
         </div>
     </footer>
 

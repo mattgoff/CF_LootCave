@@ -1,10 +1,69 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Loot Cave";
 }
 
+<br /><br /><br />
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Loot Cave</h1>
+    <br />
+    <p class="text-left indent">You are a Cody Jones, legendary treasure
+hunter, you have found the mythical treasure
+island that stores the gold of the famed pirate
+Captain Flint. You have learned through your
+exploration of the island that he has stored his
+gold in a series of loot caves. But with all pirates
+there is a trap you cannot simply loot each cave.
+Each cave has a certain amount of gold stashed,
+but to keep you from looting each of them the
+caves are connected to an underground lava
+chamber. If you a loot a cave the adjacent caves
+are filled with lava. This trap makes the caves
+impossible to loot.</p>
+
+
+<p class="text-left indent">Given a list of non-negative integers
+representing the amount of gold of each cave,
+determine the maximum amount of gold you
+can loot without dying in the lava.</p>
+
+<p class="text-left">Tired of trying to figure out this algorithm? Just want the data?<br />
+    Send a 'POST' request to:<br />
+        <span class="indentSpan">https://localhost:5001/api/lootcave</span>
+    Format the body of the request as a json object with your cave map:<br />
+        <span class="indentSpan">{ "CaveList": "8, 2, 1, 9, 1, 1, 9, 4, 36" }</span>
+    I'll return you a shiney new json object with everything you'll need. Feel free to try it in Postman.</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <p class="text-left">
+            <span class="bolded">Example:</span><br />
+            <span class="bolded">Input: </span>nums = [8,2,1,9,1,1,9]<br />
+            <span class="bolded">Output: </span>26<br />
+            <span class="bolded">Explanation: </span>Loot cave 1 (gold = 8), loot<br />
+            cave 4 (gold = 9), loot cave 7 (gold =9). Best<br />
+            amount you can loot = 8 + 9 + 9 = 26.<br />
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <p class="text-left">
+                <span class="bolded">Constraints</span><br />
+                • 0 <= nums.length <= 100<br />
+                • 0 <= nums[i] <= 400<br />
+            </p>
+        </div>
+        <div class="col-sm-4 text-left">
+            <span class="bolded">Cave List: </span><br />
+                <span class="indent">@string.Join(", ", Model.caveData.CaveList) </span><br />
+            <span class="bolded">Gold Looted: </span><br />
+                <span class="indent">@string.Join(", ", Model.caveData.MaxCavesByInteger) </span><br />
+            <span class="bolded">Cave # Looted: (1 based indexing)</span><br />
+                <span class="indent">@string.Join(", ", Model.caveData.MaxCavesByIndex) </span><br />
+            <span class="bolded">Total Gold Looted: </span><br />
+                <span class="indent">@Model.caveData.MaxCaveLoot </span><br />
+        </div>
+    </div>
+</div>
 </div>

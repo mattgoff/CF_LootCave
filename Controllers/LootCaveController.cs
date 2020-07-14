@@ -28,7 +28,13 @@ namespace CF_LootCave.Controllers
         [HttpGet]
         public IActionResult GetLoot()
         {
-            return Ok("Hi there");
+            CaveReturnModel newCave = new CaveReturnModel();
+
+            newCave.CaveList = new List<int> {8,2,1,9,1,1,9};
+
+            newCave = MaxSumNonAdjacentNumbers.GetCaveData(newCave);
+
+            return Ok(newCave);
         }
     }
 }
