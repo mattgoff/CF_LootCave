@@ -1,5 +1,44 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+/* body {
+  font-size: 14px;
+  background: url("/images/backgroundMap.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+body {
+  background-color: #F9FAF3;
+  /* background-color: #FAF0F5; */
+}
+
+.pageFont {
+  font-family: 'Oleo Script', cursive;
+  font-size: 25px;
+  /* color: #5062D2; */
+  color: #2A4090;
+}
+
+.titleFont {
+  font-family: 'Oleo Script', cursive;
+  font-size: 80px;
+  /* color: #5062D2; */
+  color: #2A4090;
+}
+
+.apiFont {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
+}
+
+.tableCSS {
+  white-space: nowrap;
+  /* color: #5062D2; */
+  color: #2A4090;
+
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -9,7 +48,9 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  /* color: #0366d6; */
+  color: #BF96E8;
+
 }
 
 .textLeft {
@@ -17,7 +58,7 @@ a {
 }
 
 .bolded {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .indent {

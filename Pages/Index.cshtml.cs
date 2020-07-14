@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -17,7 +18,10 @@ namespace CF_LootCave.Pages
         private readonly ILogger<IndexModel> _logger;
 
         [BindProperty]
+        [Required]
+        [RegularExpression(@"[-+]?(?:[0-9]+,)*[0-9]+(?:\.[0-9]+)?",ErrorMessage="Cave format is invalid. It must be in the format #,#,#,#")]
         public string CaveListFromForm {get; set;}
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -40,21 +44,27 @@ namespace CF_LootCave.Pages
 
         public void OnPost()
         {
-            System.Console.WriteLine("Hello There");
-
             CaveReturnModel newCave = new CaveReturnModel();
 
-            List<int> caves = CaveListFromForm.Split(",").Select(Int32.Parse).ToList();
+            if (ModelState.IsValid){
 
-            newCave.CaveList = caves;
+                List<int> caves = CaveListFromForm.Split(",").Select(Int32.Parse).ToList();
 
-            caveData = MaxSumNonAdjacentNumbers.GetCaveData(newCave);
+                newCave.CaveList = caves;
+
+                caveData = MaxSumNonAdjacentNumbers.GetCaveData(newCave);
+
+            }
+            else
+            {
+                newCave.CaveList = new List<int> {8,2,1,9,1,1,9};
+                caveData = MaxSumNonAdjacentNumbers.GetCaveData(newCave);
+            }
 
             for (int i = 0 ; i < newCave.MaxCavesByIndex.Count(); i ++)
             {
                 newCave.MaxCavesByIndex[i] = newCave.MaxCavesByIndex[i] + 1;
             }
-
         }
     }
 }
