@@ -12,6 +12,11 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
   background-color: #F9FAF3;
   /* background-color: #FAF0F5; */
+  background: url("/images/backgroundMapLight.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .pageFont {
