@@ -16,6 +16,8 @@ namespace CF_LootCave.Pages
         public CaveReturnModel caveData{get; set;}
         private readonly ILogger<IndexModel> _logger;
 
+        [BindProperty]
+        public string CaveListFromForm {get; set;}
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -34,6 +36,25 @@ namespace CF_LootCave.Pages
             {
                 newCave.MaxCavesByIndex[i] = newCave.MaxCavesByIndex[i] + 1;
             }
+        }
+
+        public void OnPost()
+        {
+            System.Console.WriteLine("Hello There");
+
+            CaveReturnModel newCave = new CaveReturnModel();
+
+            List<int> caves = CaveListFromForm.Split(",").Select(Int32.Parse).ToList();
+
+            newCave.CaveList = caves;
+
+            caveData = MaxSumNonAdjacentNumbers.GetCaveData(newCave);
+
+            for (int i = 0 ; i < newCave.MaxCavesByIndex.Count(); i ++)
+            {
+                newCave.MaxCavesByIndex[i] = newCave.MaxCavesByIndex[i] + 1;
+            }
+
         }
     }
 }

@@ -65,5 +65,57 @@ can loot without dying in the lava.</p>
                 <span class="indent">@Model.caveData.MaxCaveLoot </span><br />
         </div>
     </div>
+
+    <form method="post" asp-action="OnPost" enctype="multipart/form-data">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="CaveListFromForm">Enter a list of caves to search:</label>
+                    </div>
+                    <div class="col-3">
+                        <input asp-for="CaveListFromForm" class="form-control" />
+                    @* <span asp-validation-for="Name" clas="text-danger"></span> *@
+                        <br />
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                </div>
+    </form>
+
+    <div class="container">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Cave # - </td>
+                    @for (var i = 1; i <= Model.caveData.CaveList.Count; i++)
+                    {
+                        <td>@i</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Available Gold - </td>
+                    @foreach (var item in Model.caveData.CaveList)
+                    {
+                        <td>@item</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Gold or Lava - </td>
+                    @for (var i = 0; i < Model.caveData.CaveList.Count; i++)
+                    {
+                        if(Model.caveData.MaxCavesByIndex.Contains(i + 1))
+                        {
+                            <td> <img class="shrinkImg" src="~/images/gold.jpeg" alt=""> </td>
+                        }
+                        else
+                        {
+                            <td> <img class="shrinkImg" src="~/images/fire.jpeg" alt=""> </td>
+                        }
+
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </div>
